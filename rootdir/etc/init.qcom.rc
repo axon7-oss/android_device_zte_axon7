@@ -42,8 +42,6 @@ on early-init
 
 on init
     # Set permissions for persist partition
-    mkdir /persist 0771 root system
-
     symlink /sdcard /storage/sdcard0
 
     # Create cgroup mount point for memory

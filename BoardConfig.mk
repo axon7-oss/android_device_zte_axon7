@@ -209,6 +209,13 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_axon7
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
+# Root
+BOARD_ROOT_EXTRA_FOLDERS += \
+    bt_firmware \
+    dsp \
+    firmware \
+    persist
+
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
