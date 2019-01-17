@@ -365,7 +365,6 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_axon7 \
     mke2fs.recovery \
     resize2fs_axon7.recovery \
     sgdisk_axon7.recovery \

@@ -34,16 +34,6 @@ def IncrementalOTA_InstallBegin(info):
   CreateVendorPartition(info)
   return
 
-def AddTrustZoneAssertion(info, input_zip):
-  android_info = info.input_zip.read("OTA/android-info.txt")
-  m = re.search(r'require\s+version-trustzone\s*=\s*(\S+)', android_info)
-  if m:
-    versions = m.group(1).split('|')
-    if len(versions) and '*' not in versions:
-      cmd = 'assert(axon7.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1");'
-      info.script.AppendExtra(cmd)
-  return
-
 def CreateVendorPartition(info):
   info.script.AppendExtra('package_extract_file("install/bin/vendor.sh", "/tmp/vendor.sh");');
   info.script.AppendExtra('set_metadata("/tmp/vendor.sh", "uid", 0, "gid", 0, "mode", 0755);');
