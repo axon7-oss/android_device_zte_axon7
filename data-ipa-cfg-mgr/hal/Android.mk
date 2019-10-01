@@ -11,9 +11,8 @@ LOCAL_SRC_FILES := src/CtUpdateAmbassador.cpp \
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/inc
 LOCAL_MODULE := liboffloadhal
 LOCAL_CPP_FLAGS := -Wall -Werror
-LOCAL_SHARED_LIBRARIES := libhwbinder \
+LOCAL_SHARED_LIBRARIES := \
                         libhidlbase \
-                        libhidltransport \
                         liblog \
                         libcutils \
                         libdl \
