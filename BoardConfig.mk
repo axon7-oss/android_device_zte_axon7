@@ -215,7 +215,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
-BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
