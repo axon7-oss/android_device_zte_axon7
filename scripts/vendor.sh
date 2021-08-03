@@ -1,6 +1,4 @@
-#!/sbin/sh
-
-# /sbin/sh runs out of TWRP.. use it.
+#!/system/bin/sh
 
 PROGS="sgdisk toybox resize2fs e2fsck mke2fs"
 RC=0
