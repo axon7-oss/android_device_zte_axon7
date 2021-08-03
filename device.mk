@@ -356,7 +356,11 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_axon7
+    librecovery_updater_axon7 \
+    mke2fs.recovery \
+    resize2fs_axon7.recovery \
+    sgdisk_axon7.recovery \
+    toybox.recovery
 
 # RenderScript
 PRODUCT_PACKAGES += \
@@ -428,14 +432,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wcnss/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wcnss/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wcnss/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-
-# /vendor
-PRODUCT_PACKAGES += \
-   resize2fs_static \
-   toybox_msm8996 \
-   mke2fs_msm8996 \
-   e2fsck_msm8996 \
-   sgdisk_msm8996
 
 # Creating /vendor
 PRODUCT_COPY_FILES += \

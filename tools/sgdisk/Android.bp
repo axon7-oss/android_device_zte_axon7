@@ -1,0 +1,16 @@
+cc_binary {
+    name: "sgdisk_axon7",
+    recovery_available: true,
+    host_supported: true,
+
+    defaults: ["sgdisk_defaults"],
+
+    target: {
+        darwin: {
+            cflags: [
+                "-D_FILE_OFFSET_BITS=64",
+                "-Doff64_t=off_t",
+            ],
+        },
+    },
+}

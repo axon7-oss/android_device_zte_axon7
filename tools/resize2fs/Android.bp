@@ -1,0 +1,26 @@
+resize2fs_libs = [
+    "libext2fs",
+    "libext2_com_err",
+    "libext2_e2p",
+    "libext2_uuid",
+    "libext2_blkid",
+]
+
+cc_binary {
+    name: "resize2fs_axon7",
+    recovery_available: true,
+    host_supported: true,
+    defaults: ["resize2fs-defaults"],
+
+    // Host binaries can be compiled statically to be re-used in other environments.
+    // For android binaries, we keep shared libraries to keep the binary size smaller.
+    target: {
+        host: {
+            static_libs: resize2fs_libs,
+        },
+        android: {
+            shared_libs: resize2fs_libs,
+        },
+    },
+    system_shared_libs: ["libc", "libdl"],
+}
