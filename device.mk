@@ -23,7 +23,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
-$(call inherit-product-if-exists, vendor/zte/axon7/axon7-vendor.mk)
+$(call inherit-product, vendor/zte/axon7/axon7-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
