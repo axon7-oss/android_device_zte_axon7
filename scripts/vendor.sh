@@ -3,7 +3,7 @@
 TOYBOX="/system/bin/toybox"
 
 # Get bootdevice.. don't assume /dev/block/sda
-DISK=`${TOYBOX} readlink /dev/block/by-name/system | ${TOYBOX} sed -e's/[0-9]//g'`
+DISK=`${TOYBOX} readlink /dev/block/platform/soc/624000.ufshc/by-name/system | ${TOYBOX} sed -e's/[0-9]//g'`
 
 # Check for /vendor existence
 VENDOR=`/system/bin/sgdisk_axon7 --pretend --print ${DISK} | ${TOYBOX} grep -c vendor`
@@ -37,7 +37,7 @@ SYSCODE=`/system/bin/sgdisk_axon7 --pretend --print ${DISK} | ${TOYBOX} grep sys
 SECSIZE=`/system/bin/sgdisk_axon7 --pretend --print ${DISK} | ${TOYBOX} grep 'sector size' | ${TOYBOX} tr -s ' ' | ${TOYBOX} cut -d' ' -f4`
 
 ## Resize part..
-/system/bin/e2fsck /dev/block/by-name/system
+/system/bin/e2fsck /dev/block/platform/soc/624000.ufshc/by-name/system
 
 # 512 = 512mb..
 VENDORSIZE=`${TOYBOX} expr 512 \* 1024 \* 1024 / ${SECSIZE}`
@@ -46,7 +46,7 @@ NEWEND=`${TOYBOX} expr ${SYSEND} - ${VENDORSIZE}`
 VENDORSTART=`${TOYBOX} expr ${NEWEND} + 1`
 
 NEWSYSSIZE=`${TOYBOX} expr ${NEWEND} - ${SYSSTART} + 1`
-MINSYSSIZE=`/system/bin/resize2fs_axon7 -P /dev/block/by-name/system 2>/dev/null | ${TOYBOX} grep minimum | ${TOYBOX} tr -s ' ' | ${TOYBOX} cut -d' ' -f7`
+MINSYSSIZE=`/system/bin/resize2fs_axon7 -P /dev/block/platform/soc/624000.ufshc/by-name/system 2>/dev/null | ${TOYBOX} grep minimum | ${TOYBOX} tr -s ' ' | ${TOYBOX} cut -d' ' -f7`
 
 # Check if /system will shrink to small
 if [ ${NEWSYSSIZE} -lt 0 ] ; then
@@ -62,9 +62,9 @@ fi
 ${TOYBOX} echo "*********Resize /system to ${NEWSYSSIZE} = ${NEWEND} - ${SYSSTART} + 1 (inclusize) = ${NEWSYSSIZE}"
 
 ### TO REALLY DO THIS, REMOVE THE echo ###
-/system/bin/e2fsck -y -f /dev/block/by-name/system
+/system/bin/e2fsck -y -f /dev/block/platform/soc/624000.ufshc/by-name/system
 ### TO REALLY DO THIS, REMOVE THE echo ###
-/system/bin/resize2fs_axon7 /dev/block/by-name/system ${NEWSYSSIZE}
+/system/bin/resize2fs_axon7 /dev/block/platform/soc/624000.ufshc/by-name/system ${NEWSYSSIZE}
 
 # Only echo's for now... --pretend will NOT do it..
 ### TO REALLY DO THIS, REMOVE THE --pretend ###
