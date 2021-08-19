@@ -169,10 +169,6 @@ TARGET_EXFAT_DRIVER := sdfat
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(PLATFORM_PATH):libinit_axon7
-TARGET_RECOVERY_DEVICE_MODULES := libinit_axon7
-
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
