@@ -28,6 +28,6 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_axon7
 PRODUCT_DEVICE := axon7
-PRODUCT_BRAND := ZTE
-PRODUCT_MODEL := ZTE A2017U
+PRODUCT_BRAND := zte
+PRODUCT_MODEL := Axon 7
 PRODUCT_MANUFACTURER := ZTE
