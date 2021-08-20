@@ -184,8 +184,8 @@ PRODUCT_PACKAGES += \
     qdcm_calib_data_zteSAM_S6E3HA3_SAM_25601440_5P5Inch.xml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    ZteDoze
+#PRODUCT_PACKAGES += \
+#    ZteDoze
 
 # Flip Cover App
 PRODUCT_PACKAGES += \
