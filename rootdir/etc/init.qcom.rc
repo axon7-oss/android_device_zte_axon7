@@ -501,9 +501,6 @@ service thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
    group root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
    writepid /dev/cpuset/system-background/tasks
 
 service thermal-perf /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-8996-perf.conf
@@ -514,9 +511,6 @@ service thermal-perf /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-89
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
    group root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
    disabled
    writepid /dev/cpuset/system-background/tasks
 
