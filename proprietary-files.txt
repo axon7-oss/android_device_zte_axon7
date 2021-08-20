@@ -1,3 +1,7 @@
+#
+# Vendor Blobs for axon7 - A2017G_B03_OREO
+#
+
 # Audio ACDB
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
